@@ -1,0 +1,18 @@
+document.addEventListener("DOMContentLoaded", function(event) {  
+//var theLinkElement = getTopWindow().document.querySelector("a[class~=headerlink]"); 
+var theLinkElement = getTopWindow().document.querySelector("div[class~=headerlink]");  
+//Only insert if the user has roles and the links are not on the page already  
+if(g_user.hasRoles() && jQuery(theLinkElement).length == 0){  
+var theStyle = "float: right; padding:0px;font-size: 1.3rem; margin: 8px 0px 0px 0px;" +   
+"width: auto; height: 25px; text-align: center;" +   
+"color: red";   
+//Common styling using div & spans  
+var linkDivOpen = '<div><span style="' + theStyle + '">';  
+svar linkDivClose = "</span></div>";   
+//Links 
+var pLink = "<a target='_blank' href='/sp' id='sp' style='color: inherit;text-decoration: none;'><span class='btn btn-icon icon-empty-circle' style='font-size: 20px;' />SP&nbsp</a>"; //);   
+var theHeaderElement = getTopWindow().document.querySelector(".navbar-right");  
+//Insert the links  
+jQuery(linkDivOpen + spLink + linkDivClose).insertBefore(theHeaderElement); 
+}
+});
